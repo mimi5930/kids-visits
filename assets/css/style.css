@@ -17,6 +17,12 @@
     border-bottom: solid 2px var(--nav-secondary-color);
 }
 
+.line {
+    height: 5px;
+    margin: auto 30px;
+    border-bottom: solid 2px var(--nav-secondary-color);
+}
+
 /* Navigation */
 
 .navbar {
@@ -82,12 +88,12 @@
 }
 
 .card {
-    width: 400px;
+    width: 356px;
 }
 
 .card img {
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 356px;
+    max-height: 356px;
     background-color: var(--nav-secondary-color);
 }
 
@@ -96,20 +102,35 @@
     margin: 20px 30%;
 }
 
-.line {
-    height: 5px;
-    margin: auto 30px;
-    border-bottom: solid 2px var(--nav-secondary-color);
-}
-
 /* image gallery */
 
 .image-gallery {
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .gallery {
     width: 22%;
     height: auto;
-    min-width: 200px;
+    min-width: 180px;
+    margin-bottom: 5px;
+    background-color: var(--nav-secondary-color);
 }
+
+/* contact me */
+
+.contact-me {
+    margin-top: 40px;
+}
+
+.contact-me h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#text-submit {
+    height: 100px;
+}
+
+/* .contact-me button {
+} */

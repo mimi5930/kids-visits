@@ -33,7 +33,7 @@
     <header class="hero container-fluid">
         <div class="hero-div">
             <h2 class="hero-text">Multiple Services for Families</h2>
-            <a href="#" class="btn btn-dark hero-btn">CONTACT BRENDA</a>
+            <a href="#contact-me" class="btn btn-dark hero-btn">CONTACT BRENDA</a>
         </div>
     </header>
 
@@ -84,7 +84,7 @@
         <div class="line"></div>
     </main>
 
-    <section class="image-gallery d-flex align-items-center flex-row justify-content-evenly ">
+    <section class="image-gallery d-flex align-items-center flex-row justify-content-evenly flex-wrap">
         <!-- grandma -->
         <img class="gallery" src="https://i.ibb.co/HYsnhRJ/ekaterina-shakharova-L4nw-L3195-U0-unsplash.jpg" alt="ekaterina-shakharova-L4nw-L3195-U0-unsplash">
         <!-- silly faces -->
@@ -95,12 +95,45 @@
         <img class="gallery" src="https://i.ibb.co/YhY9p0C/hannah-tasker-ZBk-H8-G4-yy-E-unsplash.jpg" alt="hannah-tasker-ZBk-H8-G4-yy-E-unsplash" border="0">
     </section>
 
-    <section id="contact-me">
+    <div class="line"></div>
 
+    <section class="container contact-me" id="contact-me">
+        <h2>Contact Brenda</h2>
+        <form action="https://formsubmit.co/mikej.miller440@gmail.com" method="POST" class="needs-validation" novalidate>
+            <!-- formsubmit.co-specific functions start -->
+            <input type="hidden" name="_subject" value="kidsvisits form submission">
+            <input type="text" name="_honey" style="display: none">
+            <input type="hidden" name="_template" value="table">
+            <!-- form inputs start -->
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="name" id="name-input" placeholder="name">
+                <label for="name-input">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="email" name="email" id="email-input" placeholder="name@example.com" required>
+                <label for="email-input">Email *</label>
+                <div class="invalid-feedback">
+                    Please provide your email.
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" rows="4" name="text-submit" id="text-submit" placeholder="..." required></textarea>
+                <label for="text-submit">Message *</label>
+                <div class="invalid-feedback">
+                    Please leave a message or question.
+                </div>
+            </div>
+            <button class="btn btn-info" type="submit">SUBMIT</button>
+        </form>
     </section>
 
-    <footer>
-
+    <footer class="footer">
+        <p>Copyright &copy; 2018 Brenda Jacobson</p>
+        <div>
+            <p>Brenda Jacobson</p>
+            <p>Bren03@live.com</p>
+            <p>(701) 799-4582</p>
+        </div>
     </footer>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
