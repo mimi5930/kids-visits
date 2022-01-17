@@ -5,3 +5,8 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.page-title {
+    font-family: var(--web-title-font);
+    font-size: 60px;
+}
