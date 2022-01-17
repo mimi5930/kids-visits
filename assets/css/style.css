@@ -8,6 +8,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.title {
+    margin: 40px 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    border-bottom: solid 2px var(--nav-secondary-color);
+}
+
 /* Navigation */
 
 .navbar {
@@ -46,7 +55,7 @@
 .hero-div {
     background-color: rgba(75, 75, 75, .5);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: calc(0.25rem - 1px);
     line-height: 2;
     text-align: center;
     margin: 0;
@@ -65,4 +74,30 @@
 
 .hero-btn {
     padding: 15px 20px;
+}
+
+/* Main */
+.img-cards {
+    margin: auto 50px;
+}
+
+.card {
+    width: 400px;
+}
+
+.card img {
+    max-width: 400px;
+    max-height: 400px;
+    background-color: var(--nav-secondary-color);
+}
+
+.find-out-more {
+    display: block;
+    margin: 20px 30%;
+}
+
+.line {
+    height: 5px;
+    margin: auto 30px;
+    border-bottom: solid 2px var(--nav-secondary-color);
 }
