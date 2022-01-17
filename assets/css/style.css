@@ -101,3 +101,15 @@
     margin: auto 30px;
     border-bottom: solid 2px var(--nav-secondary-color);
 }
+
+/* image gallery */
+
+.image-gallery {
+    margin-top: 40px;
+}
+
+.gallery {
+    width: 22%;
+    height: auto;
+    min-width: 200px;
+}
