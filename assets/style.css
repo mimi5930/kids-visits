@@ -1,12 +1,57 @@
 :root {
     --web-title-font: 'Nanum Pen Script', cursive;
+    --nav-color: #ff9059;
+    --nav-secondary-color: #f1895a;
 }
 
 * {
     font-family: 'Roboto', sans-serif;
 }
 
+/* Navigation */
+
+.navbar {
+    background-color: var(--nav-color);
+}
+
 .page-title {
     font-family: var(--web-title-font);
     font-size: 60px;
+    text-shadow: 0 0 7px black;
+}
+
+/* Hero */
+
+.hero {
+    background-image: url(https://i.ibb.co/FDm2cH4/kevin-delvecchio-7no-ZJ-4nh-U8-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--nav-secondary-color);
+    block-size: 75vh;
+    position: relative;
+}
+
+.hero-div {
+    background-color: rgba(75, 75, 75, .5);
+    padding: 30px;
+    border-radius: 15px;
+    line-height: 2;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.hero-text {
+    text-shadow: 0 0 2px black;
+    color: whitesmoke;
+    font-size: 70px;
+}
+
+.hero-btn {
+    padding: 15px 20px;
 }
