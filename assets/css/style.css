@@ -17,7 +17,18 @@
 .page-title {
     font-family: var(--web-title-font);
     font-size: 60px;
-    text-shadow: 0 0 7px black;
+    text-shadow: 0 0 5px black;
+}
+
+.nav-link {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: whitesmoke;
 }
 
 /* Hero */
