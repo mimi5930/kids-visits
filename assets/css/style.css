@@ -2,6 +2,7 @@
     --web-title-font: 'Nanum Pen Script', cursive;
     --nav-color: #ff9059;
     --nav-secondary-color: #f1895a;
+    --footer-bg-color: #212529;
 }
 
 * {
@@ -120,7 +121,7 @@
 /* contact me */
 
 .contact-me {
-    margin-top: 40px;
+    margin: 40px auto;
 }
 
 .contact-me h2 {
@@ -134,3 +135,20 @@
 
 /* .contact-me button {
 } */
+
+/* footer */
+
+.footer {
+    background-color: var(--footer-bg-color);
+    color: whitesmoke;
+}
+
+.footer-text {
+    padding: 40px 20px;
+}
+
+.footer-text a {
+    color: whitesmoke;
+    text-decoration: none;
+    text-decoration: underline;
+}
