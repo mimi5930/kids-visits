@@ -1,5 +1,5 @@
 :root {
-    --web-title-font: 'Nanum Pen Script', cursive;
+    --web-title-font: 'Permanent Marker', cursive;
     --nav-color: #ff9059;
     --nav-secondary-color: #f1895a;
     --teal-color: #0dcaf0;
@@ -33,7 +33,7 @@
 
 .page-title {
     font-family: var(--web-title-font);
-    font-size: 60px;
+    font-size: 50px;
     text-shadow: 0 0 5px black;
 }
 
