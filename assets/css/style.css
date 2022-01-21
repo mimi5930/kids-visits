@@ -2,6 +2,7 @@
     --web-title-font: 'Nanum Pen Script', cursive;
     --nav-color: #ff9059;
     --nav-secondary-color: #f1895a;
+    --teal-color: #0dcaf0;
     --footer-bg-color: #212529;
 }
 
@@ -155,10 +156,35 @@
 
 /* Reference Page */
 
+.references h2 {
+    font-weight: bold;
+}
+
 .bren-img {
     width: 20%;
     height: auto;
     min-width: 16rem;
     border-radius: 50%;
     transform: rotate(20deg);
+}
+
+.img-and-contact {
+    margin: auto 20%;
+}
+
+.contact {
+    text-align: center;
+}
+
+.card-header {
+    text-align: center;
+    height: 80px;
+}
+
+.education {
+    margin-bottom: 80px;
+}
+
+.exp-card {
+    width: 70%;
 }
