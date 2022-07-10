@@ -1,20 +1,35 @@
-// Bootstrap Data Verification
-(function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
+// Bootstrap Data Validation
+const form = document.getElementById('contact-form');
+const nameInput = document.getElementById('name-input');
+const emailInput = document.getElementById('email-input');
+const textInput = document.getElementById('text-submit');
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  // reset classLists
+  emailInput.classList.remove('is-invalid');
+  emailInput.classList.remove('is-valid');
+  textInput.classList.remove('is-invalid');
+  textInput.classList.remove('is-valid');
+  // validate email input
+  if (emailInput.value === '') {
+    emailInput.classList.add('is-invalid');
+    return;
+  } else {
+    emailInput.classList.add('is-valid');
+  }
+
+  // validate message input
+  textInput.classList.remove('is-invalid');
+  if (textInput.value === '') {
+    textInput.classList.add('is-invalid');
+    return;
+  } else {
+    textInput.classList.add('is-valid');
+  }
+
+  // submit form
+  form.submit();
+}
+
+form.addEventListener('submit', handleFormSubmit);

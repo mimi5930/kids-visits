@@ -25,9 +25,7 @@
   <body>
     <nav class="navbar navbar-expand-sm sticky-top navbar-light">
       <div class="container-fluid">
-        <a class="page-title navbar-brand" href="./index.html"
-          >Brenda Jacobson</a
-        >
+        <a class="page-title navbar-brand" href="/">Brenda Jacobson</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -45,7 +43,7 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./references.html">References</a>
+              <a class="nav-link" href="/references">References</a>
             </li>
           </ul>
         </div>
@@ -120,7 +118,7 @@
           </div>
         </div>
       </div>
-      <a href="./references.html" class="find-out-more btn btn-info btn-large"
+      <a href="/references" class="find-out-more btn btn-info btn-large"
         >FIND OUT MORE</a
       >
       <div class="line"></div>
@@ -162,9 +160,10 @@
 
     <section class="container contact-me" id="contact-me">
       <h2>Contact Brenda</h2>
-      <!-- TODO: Finish up tank you page and add link into _next input field -->
+      <!-- TODO: Finish up thank you page and add link into _next input field -->
       <form
         action="https://formsubmit.co/mikej.miller440@gmail.com"
+        id="contact-form"
         method="POST"
         class="needs-validation"
         novalidate
@@ -177,7 +176,11 @@
         />
         <input type="text" name="_honey" style="display: none" />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://mimi5930.github.io/kids-visits/thank-you"
+        />
         <!-- form inputs start -->
         <div class="form-floating mb-3">
           <input
