@@ -7,10 +7,8 @@ const textInput = document.getElementById('text-submit');
 function handleFormSubmit(event) {
   event.preventDefault();
   // reset classLists
-  emailInput.classList.remove('is-invalid');
-  emailInput.classList.remove('is-valid');
-  textInput.classList.remove('is-invalid');
-  textInput.classList.remove('is-valid');
+  emailInput.classList.remove('is-invalid', 'is-valid');
+  textInput.classList.remove('is-invalid', 'is-valid');
   // validate email input
   if (emailInput.value === '') {
     emailInput.classList.add('is-invalid');
