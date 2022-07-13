@@ -1,4 +1,4 @@
-// Bootstrap Data Validation
+// DOM elements
 const form = document.getElementById('contact-form');
 const nameInput = document.getElementById('name-input');
 const emailInput = document.getElementById('email-input');
