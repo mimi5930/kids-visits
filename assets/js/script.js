@@ -1,40 +1,42 @@
 // DOM elements
-const form = document.getElementById('contact-form');
-const nameInput = document.getElementById('name-input');
-const emailInput = document.getElementById('email-input');
-const textInput = document.getElementById('text-submit');
-const emailError = document.getElementById('invalid-text');
+const form = document.getElementById('contact-form'),
+  emailInput = document.getElementById('email-input'),
+  textInput = document.getElementById('text-submit'),
+  emailError = document.getElementById('invalid-text')
 
 function handleFormSubmit(event) {
-  let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
-  event.preventDefault();
+  let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
+  let { classList: emailClassList } = emailInput,
+    { classList: emailInputClassList } = emailInput,
+    { classList: textInputClassList } = textInput
+  event.preventDefault()
   // reset classLists
-  emailInput.classList.remove('is-invalid', 'is-valid');
-  textInput.classList.remove('is-invalid', 'is-valid');
+  emailInput.classList.remove('is-invalid', 'is-valid')
+  textInput.classList.remove('is-invalid', 'is-valid')
   // validate email input
   if (emailInput.value === '') {
-    emailError.textContent = 'Please provide your email.';
-    emailInput.classList.add('is-invalid');
-    return;
+    emailError.textContent = 'Please provide your email.'
+    emailClassList.add('is-invalid')
+    return
   } else if (!isEmail.test(emailInput.value)) {
-    emailError.textContent = 'Please enter a valid email address.';
-    emailInput.classList.add('is-invalid');
-    return;
+    emailError.textContent = 'Please enter a valid email address.'
+    emailClassList.add('is-invalid')
+    return
   } else {
-    emailInput.classList.add('is-valid');
+    emailInputClassList.add('is-valid')
   }
 
   // validate message input
-  textInput.classList.remove('is-invalid');
+  textInputClassList.remove('is-invalid')
   if (textInput.value === '') {
-    textInput.classList.add('is-invalid');
-    return;
+    textInputClassList.add('is-invalid')
+    return
   } else {
-    textInput.classList.add('is-valid');
+    textInputClassList.add('is-valid')
   }
 
   // submit form
-  form.submit();
+  form.submit()
 }
 
-form.addEventListener('submit', handleFormSubmit);
+form.addEventListener('submit', handleFormSubmit)
