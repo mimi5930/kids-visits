@@ -48,7 +48,7 @@ async function handleFormSubmit(event) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          accept: 'application/json'
+          Accept: 'application/json'
         },
         body: JSON.stringify({
           name: nameInput.value || 'name not provided',
