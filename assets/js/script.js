@@ -2,9 +2,12 @@
 const form = document.getElementById('contact-form'),
   emailInput = document.getElementById('email-input'),
   textInput = document.getElementById('text-submit'),
-  emailError = document.getElementById('invalid-text')
+  emailError = document.getElementById('invalid-text'),
+  nameInput = document.getElementById('name-input'),
+  successAlert = document.getElementById('success-alert'),
+  dangerAlert = document.getElementById('danger-alert')
 
-function handleFormSubmit(event) {
+async function handleFormSubmit(event) {
   let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
   let { classList: emailClassList } = emailInput,
     { classList: emailInputClassList } = emailInput,
@@ -14,7 +17,7 @@ function handleFormSubmit(event) {
   emailInput.classList.remove('is-invalid', 'is-valid')
   textInput.classList.remove('is-invalid', 'is-valid')
   // validate email input
-  if (emailInput.value === '') {
+  if (!emailInput.value) {
     emailError.textContent = 'Please provide your email.'
     emailClassList.add('is-invalid')
     return
@@ -28,15 +31,40 @@ function handleFormSubmit(event) {
 
   // validate message input
   textInputClassList.remove('is-invalid')
-  if (textInput.value === '') {
+  if (!textInput.value) {
     textInputClassList.add('is-invalid')
     return
   } else {
     textInputClassList.add('is-valid')
   }
 
+  dangerAlert.classList.remove('visually-hidden')
+
   // submit form
-  form.submit()
+  try {
+    const response = await fetch(
+      'https://formsubmit.co/ajax/57875ae7624d79ca51cbb710062a4b69',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name: nameInput.value || 'name not provided',
+          email: emailInput.value,
+          text: textInput.value
+        })
+      }
+    )
+
+    if (response.ok) {
+      successAlert.classList.remove('visually-hidden')
+    }
+  } catch (error) {
+    dangerAlert.classList.remove('visually-hidden')
+    console.log(error)
+  }
 }
 
 form.addEventListener('submit', handleFormSubmit)
