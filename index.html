@@ -207,7 +207,20 @@
             Please leave a message or question.
           </div>
         </div>
-        <button class="btn btn-info" type="submit">SUBMIT</button>
+        <button
+          class="btn btn-info d-flex align-items-center gap-2"
+          type="submit"
+          id="form-submit"
+        >
+          SUBMIT
+          <div
+            class="spinner-border visually-hidden"
+            role="status"
+            id="loading-spinner"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
       </form>
       <div
         class="alert alert-success mt-3 d-flex justify-content-between visually-hidden"

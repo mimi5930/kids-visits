@@ -7,7 +7,9 @@ const form = document.getElementById('contact-form'),
   successAlert = document.getElementById('success-alert'),
   dangerAlert = document.getElementById('danger-alert'),
   successCloseBtn = document.getElementById('success-close'),
-  dangerCloseBtn = document.getElementById('danger-close')
+  dangerCloseBtn = document.getElementById('danger-close'),
+  loadingSpinner = document.getElementById('loading-spinner'),
+  formSubmitBtn = document.getElementById('form-submit')
 
 async function handleFormSubmit(event) {
   let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
@@ -42,6 +44,8 @@ async function handleFormSubmit(event) {
 
   // submit form
   try {
+    loadingSpinner.classList.remove('visually-hidden')
+    formSubmitBtn.disabled = true
     const response = await fetch(
       'https://formsubmit.co/ajax/57875ae7624d79ca51cbb710062a4b69',
       {
@@ -61,7 +65,11 @@ async function handleFormSubmit(event) {
     if (response.ok) {
       successAlert.classList.remove('visually-hidden')
     }
+    loadingSpinner.classList.add('visually-hidden')
+    formSubmitBtn.disabled = false
   } catch (error) {
+    loadingSpinner.classList.add('visually-hidden')
+    formSubmitBtn.disabled = false
     dangerAlert.classList.remove('visually-hidden')
     console.log(error)
   }
