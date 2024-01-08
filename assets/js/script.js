@@ -5,7 +5,9 @@ const form = document.getElementById('contact-form'),
   emailError = document.getElementById('invalid-text'),
   nameInput = document.getElementById('name-input'),
   successAlert = document.getElementById('success-alert'),
-  dangerAlert = document.getElementById('danger-alert')
+  dangerAlert = document.getElementById('danger-alert'),
+  successCloseBtn = document.getElementById('success-close'),
+  dangerCloseBtn = document.getElementById('danger-close')
 
 async function handleFormSubmit(event) {
   let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
@@ -38,8 +40,6 @@ async function handleFormSubmit(event) {
     textInputClassList.add('is-valid')
   }
 
-  dangerAlert.classList.remove('visually-hidden')
-
   // submit form
   try {
     const response = await fetch(
@@ -67,4 +67,20 @@ async function handleFormSubmit(event) {
   }
 }
 
+function handleCloseButtonPress(event) {
+  const btnId = event.target.id
+  switch (btnId) {
+    case 'success-close':
+      successAlert.classList.add('visually-hidden')
+      break
+    case 'danger-close':
+      dangerAlert.classList.add('visually-hidden')
+      break
+    default:
+      break
+  }
+}
+
 form.addEventListener('submit', handleFormSubmit)
+successCloseBtn.addEventListener('click', handleCloseButtonPress)
+dangerCloseBtn.addEventListener('click', handleCloseButtonPress)
