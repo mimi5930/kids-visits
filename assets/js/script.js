@@ -42,6 +42,8 @@ async function handleFormSubmit(event) {
     textInputClassList.add('is-valid')
   }
 
+  clearFormInputs()
+
   // submit form
   try {
     loadingSpinner.classList.remove('visually-hidden')
@@ -67,12 +69,19 @@ async function handleFormSubmit(event) {
     }
     loadingSpinner.classList.add('visually-hidden')
     formSubmitBtn.disabled = false
+    clearFormInputs()
   } catch (error) {
     loadingSpinner.classList.add('visually-hidden')
     formSubmitBtn.disabled = false
     dangerAlert.classList.remove('visually-hidden')
     console.log(error)
   }
+}
+
+function clearFormInputs() {
+  nameInput.value = ''
+  emailInput.value = ''
+  textInput.value = ''
 }
 
 function handleCloseButtonPress(event) {
