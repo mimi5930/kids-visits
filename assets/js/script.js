@@ -12,6 +12,11 @@ const form = document.getElementById('contact-form'),
   formSubmitBtn = document.getElementById('form-submit')
 
 async function handleFormSubmit(event) {
+  // hide alerts
+  successAlert.classList.add('visually-hidden')
+  dangerAlert.classList.add('visually-hidden')
+
+  // validation
   let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
   let { classList: emailClassList } = emailInput,
     { classList: emailInputClassList } = emailInput,
