@@ -160,11 +160,11 @@
 }
 
 .bren-img {
-  width: 20%;
-  height: auto;
-  min-width: 16rem;
-  border-radius: 50%;
-  transform: rotate(20deg);
+  width: 20rem;
+  height: 25rem;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: 100% 15%;
 }
 
 .img-and-contact {
