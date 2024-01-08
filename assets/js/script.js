@@ -1,40 +1,94 @@
 // DOM elements
-const form = document.getElementById('contact-form');
-const nameInput = document.getElementById('name-input');
-const emailInput = document.getElementById('email-input');
-const textInput = document.getElementById('text-submit');
-const emailError = document.getElementById('invalid-text');
+const form = document.getElementById('contact-form'),
+  emailInput = document.getElementById('email-input'),
+  textInput = document.getElementById('text-submit'),
+  emailError = document.getElementById('invalid-text'),
+  nameInput = document.getElementById('name-input'),
+  successAlert = document.getElementById('success-alert'),
+  dangerAlert = document.getElementById('danger-alert'),
+  successCloseBtn = document.getElementById('success-close'),
+  dangerCloseBtn = document.getElementById('danger-close'),
+  loadingSpinner = document.getElementById('loading-spinner'),
+  formSubmitBtn = document.getElementById('form-submit')
 
-function handleFormSubmit(event) {
-  let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
-  event.preventDefault();
+async function handleFormSubmit(event) {
+  let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
+  let { classList: emailClassList } = emailInput,
+    { classList: emailInputClassList } = emailInput,
+    { classList: textInputClassList } = textInput
+  event.preventDefault()
   // reset classLists
-  emailInput.classList.remove('is-invalid', 'is-valid');
-  textInput.classList.remove('is-invalid', 'is-valid');
+  emailInput.classList.remove('is-invalid', 'is-valid')
+  textInput.classList.remove('is-invalid', 'is-valid')
   // validate email input
-  if (emailInput.value === '') {
-    emailError.textContent = 'Please provide your email.';
-    emailInput.classList.add('is-invalid');
-    return;
+  if (!emailInput.value) {
+    emailError.textContent = 'Please provide your email.'
+    emailClassList.add('is-invalid')
+    return
   } else if (!isEmail.test(emailInput.value)) {
-    emailError.textContent = 'Please enter a valid email address.';
-    emailInput.classList.add('is-invalid');
-    return;
+    emailError.textContent = 'Please enter a valid email address.'
+    emailClassList.add('is-invalid')
+    return
   } else {
-    emailInput.classList.add('is-valid');
+    emailInputClassList.add('is-valid')
   }
 
   // validate message input
-  textInput.classList.remove('is-invalid');
-  if (textInput.value === '') {
-    textInput.classList.add('is-invalid');
-    return;
+  textInputClassList.remove('is-invalid')
+  if (!textInput.value) {
+    textInputClassList.add('is-invalid')
+    return
   } else {
-    textInput.classList.add('is-valid');
+    textInputClassList.add('is-valid')
   }
 
   // submit form
-  form.submit();
+  try {
+    loadingSpinner.classList.remove('visually-hidden')
+    formSubmitBtn.disabled = true
+    const response = await fetch(
+      'https://formsubmit.co/ajax/57875ae7624d79ca51cbb710062a4b69',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name: nameInput.value || 'name not provided',
+          email: emailInput.value,
+          text: textInput.value
+        })
+      }
+    )
+
+    if (response.ok) {
+      successAlert.classList.remove('visually-hidden')
+    }
+    loadingSpinner.classList.add('visually-hidden')
+    formSubmitBtn.disabled = false
+  } catch (error) {
+    loadingSpinner.classList.add('visually-hidden')
+    formSubmitBtn.disabled = false
+    dangerAlert.classList.remove('visually-hidden')
+    console.log(error)
+  }
 }
 
-form.addEventListener('submit', handleFormSubmit);
+function handleCloseButtonPress(event) {
+  const btnId = event.target.id
+  switch (btnId) {
+    case 'success-close':
+      successAlert.classList.add('visually-hidden')
+      break
+    case 'danger-close':
+      dangerAlert.classList.add('visually-hidden')
+      break
+    default:
+      break
+  }
+}
+
+form.addEventListener('submit', handleFormSubmit)
+successCloseBtn.addEventListener('click', handleCloseButtonPress)
+dangerCloseBtn.addEventListener('click', handleCloseButtonPress)
