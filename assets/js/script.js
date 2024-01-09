@@ -9,7 +9,8 @@ const form = document.getElementById('contact-form'),
   successCloseBtn = document.getElementById('success-close'),
   dangerCloseBtn = document.getElementById('danger-close'),
   loadingSpinner = document.getElementById('loading-spinner'),
-  formSubmitBtn = document.getElementById('form-submit')
+  formSubmitBtn = document.getElementById('form-submit'),
+  honeyInput = document.getElementById('honey')
 
 async function handleFormSubmit(event) {
   // hide alerts
@@ -60,6 +61,8 @@ async function handleFormSubmit(event) {
           Accept: 'application/json'
         },
         body: JSON.stringify({
+          _subject: 'New KidsVisits Submission',
+          _honey: honeyInput.value,
           name: nameInput.value || 'name not provided',
           email: emailInput.value,
           text: textInput.value
