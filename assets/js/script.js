@@ -9,7 +9,8 @@ const form = document.getElementById('contact-form'),
   successCloseBtn = document.getElementById('success-close'),
   dangerCloseBtn = document.getElementById('danger-close'),
   loadingSpinner = document.getElementById('loading-spinner'),
-  formSubmitBtn = document.getElementById('form-submit')
+  formSubmitBtn = document.getElementById('form-submit'),
+  honeyInput = document.getElementById('honey')
 
 async function handleFormSubmit(event) {
   // hide alerts
@@ -17,7 +18,7 @@ async function handleFormSubmit(event) {
   dangerAlert.classList.add('visually-hidden')
 
   // validation
-  let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
+  let isEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
   let { classList: emailClassList } = emailInput,
     { classList: emailInputClassList } = emailInput,
     { classList: textInputClassList } = textInput
@@ -47,8 +48,6 @@ async function handleFormSubmit(event) {
     textInputClassList.add('is-valid')
   }
 
-  clearFormInputs()
-
   // submit form
   try {
     loadingSpinner.classList.remove('visually-hidden')
@@ -62,6 +61,8 @@ async function handleFormSubmit(event) {
           Accept: 'application/json'
         },
         body: JSON.stringify({
+          _subject: 'New KidsVisits Submission',
+          _honey: honeyInput.value,
           name: nameInput.value || 'name not provided',
           email: emailInput.value,
           text: textInput.value
