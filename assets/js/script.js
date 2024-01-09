@@ -47,8 +47,6 @@ async function handleFormSubmit(event) {
     textInputClassList.add('is-valid')
   }
 
-  clearFormInputs()
-
   // submit form
   try {
     loadingSpinner.classList.remove('visually-hidden')
