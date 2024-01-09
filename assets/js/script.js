@@ -18,7 +18,7 @@ async function handleFormSubmit(event) {
   dangerAlert.classList.add('visually-hidden')
 
   // validation
-  let isEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
+  let isEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
   let { classList: emailClassList } = emailInput,
     { classList: emailInputClassList } = emailInput,
     { classList: textInputClassList } = textInput
