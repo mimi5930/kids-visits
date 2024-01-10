@@ -1,8 +1,14 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
-  base: '/',
+  base: './',
+  css: {
+    postcss: {
+      plugins: [autoprefixer({})]
+    }
+  },
   build: {
     rollupOptions: {
       input: {
