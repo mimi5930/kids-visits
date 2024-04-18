@@ -1,0 +1,11 @@
+:root {
+	--web-title-font: 'Acme', sans-serif;
+	--nav-color: #ff9059;
+	--nav-secondary-color: #f1895a;
+	--teal-color: #0dcaf0;
+	--footer-bg-color: #212529;
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
