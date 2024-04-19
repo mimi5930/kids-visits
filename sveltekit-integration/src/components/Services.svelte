@@ -92,13 +92,4 @@
 		display: block;
 		margin: 20px 30%;
 	}
-
-	.title {
-		margin: 40px 30px;
-		padding-bottom: 20px;
-		text-align: center;
-		font-size: 50px;
-		font-weight: bold;
-		border-bottom: solid 2px var(--nav-secondary-color);
-	}
 </style>
