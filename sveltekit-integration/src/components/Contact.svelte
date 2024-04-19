@@ -1,5 +1,13 @@
 <script lang="ts">
-	import { Button, Form, FormGroup, Input } from '@sveltestrap/sveltestrap';
+	import {
+		Button,
+		Card,
+		CardBody,
+		CardText,
+		Form,
+		FormGroup,
+		Input
+	} from '@sveltestrap/sveltestrap';
 	let validated: boolean = false;
 </script>
 
@@ -53,13 +61,15 @@
 		Something went wrong!
 		<button type="button" class="btn-close" aria-label="Close" id="danger-close"></button>
 	</div>
-	<div class="card mt-3 m">
-		<div class="card-body">
-			Email:
-			<a href="mailto:Bren03@live.com" target="_blank">Bren03@live.com</a><br />Cell:
-			<a href="tel:7017305222">(701) 799-4582</a>
-		</div>
-	</div>
+	<Card class="card mt-3">
+		<CardBody class="card-body">
+			<CardText>
+				Email:
+				<a href="mailto:Bren03@live.com" target="_blank">Bren03@live.com</a><br />Cell:
+				<a href="tel:7017305222">(701) 799-4582</a>
+			</CardText>
+		</CardBody>
+	</Card>
 </section>
 
 <style>
