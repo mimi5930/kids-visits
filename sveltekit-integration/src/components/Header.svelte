@@ -8,10 +8,14 @@
 		NavbarToggler,
 		Collapse
 	} from '@sveltestrap/sveltestrap';
+	import { page } from '$app/stores';
+
 	let isOpen = false;
-	function handleUpdate(event: CustomEvent<boolean>) {
+	$: currentPage = $page.url.pathname;
+
+	let handleUpdate = (event: CustomEvent<boolean>) => {
 		isOpen = event.detail;
-	}
+	};
 </script>
 
 <Navbar expand="md">
@@ -20,10 +24,10 @@
 	<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
 		<Nav class="ms-auto" navbar>
 			<NavItem>
-				<NavLink href="/">Home</NavLink>
+				<NavLink href="/" active={currentPage === '/'}>Home</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="/">References</NavLink>
+				<NavLink href="/references" active={currentPage === '/references'}>References</NavLink>
 			</NavItem>
 		</Nav>
 	</Collapse>
@@ -48,11 +52,16 @@
 		color: black;
 		font-size: 20px;
 		font-weight: bold;
+		opacity: 60%;
 		transition: 0.3s;
 	}
 
 	:global(.nav-link:hover) {
 		color: black;
-		opacity: 60%;
+		opacity: 80%;
+	}
+
+	:global(.active) {
+		opacity: 1;
 	}
 </style>
