@@ -1,5 +1,6 @@
-<footer class="d-flex justify-content-start">
+<footer class="d-flex justify-content-between">
 	<p>Copyright &copy; 2018 Brenda Jacobson</p>
+	<p>Website created by Michael Miller</p>
 </footer>
 
 <style>
