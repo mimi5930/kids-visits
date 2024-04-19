@@ -1,8 +1,6 @@
 <script lang="ts">
-	import {Button} from '@sveltestrap/sveltestrap'
-	import kellySikkema from '$lib/img/kelly-sikkema-min.jpg'
-	import benWhite from '$lib/img/ben-white-JJ9irt1OZmI-unsplash-min.jpg'
-	import paulHanaoka from '$lib/img/paul-hanaoka-a104tlUezug-unsplash-min.jpg'
+	import {Button, Card, CardBody, CardText, CardTitle} from '@sveltestrap/sveltestrap'
+	import {kellySikkema, benWhite, paulHanaoka} from '$lib/img'
 </script>
 
 <header class="hero container-fluid">
@@ -15,68 +13,70 @@
 <main>
 	<h2 class="title">Family Services Available</h2>
 	<div
-		class="img-cards d-flex flex-column align-items-md-start align-items-center flex-md-row justify-content-md-evenly"
+		class="img-cards-container d-flex flex-column align-items-md-start align-items-center flex-md-row justify-content-md-evenly justify-content-around"
 	>
 		<!-- card 1 -->
-		<!-- TODO: update alts -->
-		<div class="card mb-4">
+		<Card>
 			<img
 				src={paulHanaoka}
 				class="card-img-top"
-				alt="paulHanaoka"
+				alt="A mother kissing her child on the forehead"
 			/>
-			<div class="card-body">
-				<h3 class="card-title">Multiple Services Available</h3>
-				<ul class="card-text">
-					<li>Parent Investigation</li>
-					<li>Guardian Ad Litem</li>
-					<li>Supervised Visitation</li>
-					<li>Parent Education</li>
-					<li>Parent Coaching</li>
-					<li>Parent Coordination</li>
-					<li>Family & Child Mediation</li>
-				</ul>
-			</div>
-		</div>
+			<CardBody>
+				<CardTitle>Multiple Services Available</CardTitle>
+				<CardText>
+					<ul>
+						<li>Parent Investigation</li>
+						<li>Guardian Ad Litem</li>
+						<li>Supervised Visitation</li>
+						<li>Parent Education</li>
+						<li>Parent Coaching</li>
+						<li>Parent Coordination</li>
+						<li>Family & Child Mediation</li>
+					</ul>
+				</CardText>
+			</CardBody>
+		</Card>
 		<!-- card 2 -->
-		<div class="card mb-4">
+		<Card>
 			<img
 				src={kellySikkema}
 				class="card-img-top"
-				alt="kellySikkema"
+				alt="A father holding up his smiling toddler on his shoulders"
 			/>
-			<div class="card-body">
-				<h3 class="card-title text-fluid">
+			<CardBody>
+				<CardTitle>
 					Working With Families During Difficult Times
-				</h3>
-				<ul class="card-text">
+				</CardTitle>
+				<CardText>
+					<ul class="card-text">
 					<li>Divorcing Families</li>
 					<li>Never Married Families</li>
 					<li>Seperated Families</li>
 					<li>Grandparents Raising Grandkids</li>
 				</ul>
-			</div>
-		</div>
+				</CardText>
+			</CardBody>
+		</Card>
 		<!-- card 3 -->
-		<div class="card mb-4">
+		<Card>
 			<img
 				src={benWhite}
 				class="card-img-top"
-				alt="ben-white"
+				alt="A father holding his son's hand while they both walk away down the street"
 			/>
-			<div class="card-body">
-				<h3 class="card-title">Child Advocate</h3>
-				<p class="card-text">
+			<CardBody>
+				<CardTitle>Child Advocate</CardTitle>
+				<CardText>
 					Working with families for over 25 year in various areas
-				</p>
-				<p class="card-text">In-home services available, just ask!</p>
-				<p class="card-text">Contact Brenda for additional information</p>
-			</div>
-		</div>
+				</CardText>
+				<CardText>In-home services available, just ask!</CardText>
+				<CardText>Contact Brenda for additional information</CardText>
+			</CardBody>
+		</Card>
 	</div>
-	<a href="/references" class="find-out-more btn btn-info btn-large"
-		>FIND OUT MORE</a
-	>
+	<Button class="references-btn" color='info' size='lg' href="/references">FIND OUT MORE</Button>
+	<!-- dividing line -->
 	<div class="line"></div>
 </main>
 
@@ -115,21 +115,27 @@
 }
 
 /* main */
-.img-cards {
-  margin: auto 50px;
+.img-cards-container {
+  margin-bottom:  50px;
+  margin-top:  50px;
 }
 
-.card {
+:global(.card) {
   width: 356px;
+	margin-bottom: 1.25rem;
 }
 
-.card img {
+:global(.card img) {
   max-width: 356px;
   max-height: 356px;
   background-color: var(--nav-secondary-color);
 }
 
-.find-out-more {
+:global(.card-title) {
+	font-size: 1.75rem;
+}
+
+:global(.references-btn) {
   display: block;
   margin: 20px 30%;
 }
