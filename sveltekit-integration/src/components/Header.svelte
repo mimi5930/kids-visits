@@ -18,37 +18,25 @@
 	};
 </script>
 
-<Navbar expand="md">
-	<NavbarBrand href="/" class="page-title">Brenda Jacobson</NavbarBrand>
+<Navbar style="background-color: var(--nav-color);" expand="md">
+	<a class="navbar-brand brand" href="/">Brenda Jacobson</a>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 	<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
 		<Nav class="ms-auto" navbar>
 			<NavItem>
-				<NavLink href="/" active={currentPage === '/'}>Home</NavLink>
+				<a class="nav-link" class:active={currentPage === '/'} href="/">Home</a>
 			</NavItem>
 			<NavItem>
-				<NavLink href="/references" active={currentPage === '/references'}>References</NavLink>
+				<a class="nav-link" class:active={currentPage === '/references'} href="/references"
+					>References</a
+				>
 			</NavItem>
 		</Nav>
 	</Collapse>
 </Navbar>
 
 <style>
-	:global(.page-title) {
-		font-family: var(--web-title-font);
-		font-size: 30px;
-		color: black;
-		transition: 0.3s;
-	}
-	:global(.page-title:hover) {
-		color: black;
-		opacity: 60%;
-	}
-	:global(.navbar) {
-		background-color: var(--nav-color);
-	}
-
-	:global(.nav-link) {
+	a {
 		color: black;
 		font-size: 20px;
 		font-weight: bold;
@@ -56,12 +44,24 @@
 		transition: 0.3s;
 	}
 
-	:global(.nav-link:hover) {
+	a:hover {
 		color: black;
 		opacity: 80%;
 	}
 
-	:global(.active) {
+	.brand {
+		font-family: var(--web-title-font);
+		font-size: 30px;
+		color: black;
+		opacity: 1;
+		transition: 0.3s;
+	}
+	.brand:hover {
+		color: black;
+		opacity: 60%;
+	}
+
+	.active {
 		opacity: 1;
 	}
 </style>

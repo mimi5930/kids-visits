@@ -64,13 +64,19 @@
 			</CardBody>
 		</Card>
 	</div>
-	<Button class="references-btn" color="info" size="lg" href="/references">FIND OUT MORE</Button>
+	<div class="references-btn-container d-flex justify-content-center">
+		<Button color="info" size="lg" href="/references">FIND OUT MORE</Button>
+	</div>
 </main>
 
 <style>
 	.img-cards-container {
 		margin-bottom: 50px;
 		margin-top: 50px;
+	}
+
+	.references-btn-container {
+		margin-bottom: 40px;
 	}
 
 	:global(.card) {
@@ -86,10 +92,5 @@
 
 	:global(.card-title) {
 		font-size: 1.75rem;
-	}
-
-	:global(.references-btn) {
-		display: block;
-		margin: 20px 30%;
 	}
 </style>
