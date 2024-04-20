@@ -1,27 +1,65 @@
 <script lang="ts">
 	import {
+		Alert,
 		Button,
 		Card,
 		CardBody,
 		CardText,
-		Form,
 		FormGroup,
-		Input
+		Input,
+		Spinner
 	} from '@sveltestrap/sveltestrap';
-	let validated: boolean = false;
+
+	import { type Infer, superForm, defaults } from 'sveltekit-superforms';
+	import { zod } from 'sveltekit-superforms/adapters';
+	import { contactSchema } from '$lib/schemas';
+
+	const { form, errors, message, enhance, submitting } = superForm<
+		Infer<typeof contactSchema>,
+		{ success: string; text: string }
+	>(defaults(zod(contactSchema)), {
+		SPA: true,
+		validators: zod(contactSchema),
+		async onUpdate({ form }) {
+			if (!form.valid) return;
+			try {
+				const response = await fetch(
+					'https://formsubmit.co/ajax/57875ae7624d79ca51cbb710062a4b69',
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							Accept: 'application/json'
+						},
+						body: JSON.stringify(form.data)
+					}
+				);
+				const data: { success: string; message: string } = await response.json();
+				form.message = { success: data.success, text: data.message };
+			} catch (error) {
+				console.log(error);
+			}
+		}
+	});
 </script>
 
 <section class="container contact-form" id="contact-me">
 	<h2>Contact Brenda</h2>
-	<Form>
+	<form use:enhance>
 		<input type="text" name="_honey" id="honey" style="display: none" />
 
 		<FormGroup floating spacing="mb-3" label="Name">
-			<Input placeholder="please enter name" />
+			<Input placeholder="please enter name" bind:value={$form.name} />
 		</FormGroup>
 
-		<FormGroup floating spacing="mb-3" label="Email*">
-			<Input placeholder="name@example.com" required type="email" />
+		<FormGroup floating spacing="mb-3" label="Email *">
+			<Input
+				placeholder="name@example.com"
+				type="email"
+				bind:value={$form.email}
+				invalid={$errors.email ? true : false}
+				feedback={$errors.email}
+			/>
 		</FormGroup>
 
 		<FormGroup floating spacing="mb-3" label="Message *">
@@ -31,36 +69,27 @@
 				type="textarea"
 				placeholder="please leave a message"
 				rows={3}
-				required
+				bind:value={$form.message}
+				invalid={$errors.message ? true : false}
+				feedback={$errors.message}
 			/>
 		</FormGroup>
+		<div>
+			<Button color="info" type="submit" disabled={$submitting}>SUBMIT</Button>
+			{#if $submitting}
+				<Spinner size="sm" />
+			{/if}
+		</div>
+	</form>
 
-		<Button color="info">SUBMIT</Button>
+	{#if $message}
+		<Alert
+			style="margin-top:16px"
+			color={$message?.success === 'true' ? 'success' : 'warning'}
+			dismissible>{$message.text}</Alert
+		>
+	{/if}
 
-		<!-- <button class="btn btn-info d-flex align-items-center gap-2" type="submit" id="form-submit">
-			SUBMIT
-			<div class="spinner-border visually-hidden" role="status" id="loading-spinner">
-				<span class="visually-hidden">Loading...</span>
-			</div>
-		</button> -->
-	</Form>
-
-	<div
-		class="alert alert-success mt-3 d-flex justify-content-between visually-hidden"
-		role="alert"
-		id="success-alert"
-	>
-		Your message has been sent!
-		<button type="button" class="btn-close" aria-label="Close" id="success-close"></button>
-	</div>
-	<div
-		class="alert alert-danger mt-3 visually-hidden d-flex justify-content-between"
-		role="alert"
-		id="danger-alert"
-	>
-		Something went wrong!
-		<button type="button" class="btn-close" aria-label="Close" id="danger-close"></button>
-	</div>
 	<Card class="card mt-3">
 		<CardBody class="card-body">
 			<CardText>
@@ -84,9 +113,5 @@
 
 	:global(.text-area) {
 		height: none;
-	}
-
-	#text-submit {
-		height: 100px;
 	}
 </style>
