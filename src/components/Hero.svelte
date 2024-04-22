@@ -12,7 +12,7 @@
 <style>
 	/* hero */
 	.hero {
-		background-image: url(https://i.ibb.co/FDm2cH4/kevin-delvecchio-7no-ZJ-4nh-U8-unsplash.jpg);
+		background-image: url(../lib/img/kevin-delvecchio-7noZJ_4nhU8-unsplash-min.jpg);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
