@@ -1,13 +1,5 @@
 <script lang="ts">
-	import {
-		Nav,
-		Navbar,
-		NavItem,
-		NavLink,
-		NavbarBrand,
-		NavbarToggler,
-		Collapse
-	} from '@sveltestrap/sveltestrap';
+	import { Nav, Navbar, NavItem, NavbarToggler, Collapse } from '@sveltestrap/sveltestrap';
 	import { page } from '$app/stores';
 
 	let isOpen = false;
@@ -18,7 +10,7 @@
 	};
 </script>
 
-<Navbar style="background-color: var(--nav-color);" expand="md">
+<Navbar style="background-color: var(--nav-color);" expand="md" sticky="top">
 	<a class="navbar-brand brand" href="/">Brenda Jacobson</a>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 	<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
