@@ -26,24 +26,14 @@
 		<Card style="width:70%" class="m-4">
 			<CardHeader style="text-align:center;font-weight:bold">Education and Experience</CardHeader>
 			<ul class="m-2">
-				<li>
-					North Dakota State University-Fargo
-					<ul>
-						<li>Child Development & Family Science Bachelor - Finishing Masters</li>
-					</ul>
-				</li>
+				<li>North Dakota State University-Fargo</li>
+				<li>Child Development & Family Science Bachelor - Finishing Masters</li>
 				<li>Concordia-Moorhead</li>
-				<ul>
-					<li>Parent Education Associate Degree</li>
-				</ul>
+				<li>Parent Education Associate Degree</li>
 				<li>Supreme Court of North Dakota</li>
-				<ul>
-					<li>Parent Investigator, Guardian Ad Litem, Parent Coordinator</li>
-				</ul>
+				<li>Parent Investigator, Guardian Ad Litem, Parent Coordinator</li>
 				<li>University of North Dakota</li>
-				<ul>
-					<li>Mediation Program</li>
-				</ul>
+				<li>Mediation Program</li>
 				<li>
 					Member of Collaborative Divorce In Fargo:
 					<a href="http://www.nddivorce.com" target="_blank">http://www.nddivorce.com.</a>
@@ -54,21 +44,13 @@
 			<CardHeader style="text-align:center;font-weight:bold">Additional Experience</CardHeader>
 			<ul class="m-2">
 				<li>University of North Dakota</li>
-				<ul>
-					<li>Child Welfare/Child Protection</li>
-				</ul>
+				<li>Child Welfare/Child Protection</li>
 				<li>Child Therapeutic Supportive Services in Minnesota</li>
-				<ul>
-					<li>Work with Family Therapists Teaching Children Skills</li>
-				</ul>
+				<li>Work with Family Therapists Teaching Children Skills</li>
 				<li>Department of Human Services</li>
-				<ul>
-					<li>Children's Mental Health Division as a Trainer (12 years)</li>
-				</ul>
+				<li>Children's Mental Health Division as a Trainer (12 years)</li>
 				<li>NDSU Extension Parent Educator</li>
-				<ul>
-					<li>Teaching Parents Forever (9 years) Class Designed for Families Divorcing</li>
-				</ul>
+				<li>Teaching Parents Forever (9 years) Class Designed for Families Divorcing</li>
 			</ul>
 		</Card>
 	</Container>
