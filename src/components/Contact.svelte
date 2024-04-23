@@ -46,8 +46,7 @@
 <section class="container contact-form" id="contact-me">
 	<h2>Contact Brenda</h2>
 	<form use:enhance>
-		<input type="text" name="_honey" id="honey" style="display: none" />
-
+		<input type="text" name="_honey" id="honey" style="display: none" bind:value={$form._honey} />
 		<FormGroup floating spacing="mb-3" label="Name">
 			<Input placeholder="please enter name" bind:value={$form.name} />
 		</FormGroup>
@@ -65,7 +64,6 @@
 		<FormGroup floating spacing="mb-3" label="Message *">
 			<Input
 				style="height: auto"
-				class="text-area"
 				type="textarea"
 				placeholder="please leave a message"
 				rows={3}
@@ -109,9 +107,5 @@
 	h2 {
 		text-align: center;
 		margin-bottom: 20px;
-	}
-
-	:global(.text-area) {
-		height: none;
 	}
 </style>
