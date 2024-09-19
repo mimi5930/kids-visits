@@ -77,6 +77,6 @@ bun run deploy
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[version]: https://img.shields.io/badge/Version-2.1-green?style=flat-square
+[version]: https://img.shields.io/badge/Version-2.2-green?style=flat-square
 [Svelte.dev]: https://img.shields.io/badge/Sveltekit-4A4A55?style=for-the-badge&logo=svelte
 [Svelte-url]: https://kit.svelte.dev/
